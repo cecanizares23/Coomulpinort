@@ -2,12 +2,12 @@
  * ContextDataResourceNames.java
  *
  * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.common.connection;
+package co.IngCarlos.Coomulpinort.common.connection;
 
 /**
  *
@@ -15,6 +15,6 @@ package co.IngCarlos.gastosQX.common.connection;
  */
 public class ContextDataResourceNames {
     
-    public final static String MYSQL_GASTOS_JDBC = "jdbc/gastos";
+    public final static String MYSQL_COOMULPINORT_JDBC = "jdbc/coomulpinort";
     
 }
