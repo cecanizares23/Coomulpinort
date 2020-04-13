@@ -1,10 +1,10 @@
 <%-- 
     Document   : login
-    Created on : 17/10/2017, 09:53:55 AM
-    Author     : carlos
+    Created on : 13/04/2020, 05:37:45 PM
+    Author     : Ing. Carlos
 --%>
 <%@ page import="javax.servlet.*"%>
-<%@ page import="co.IngCarlos.gastosQX.common.util.*"%>
+<%@ page import="co.IngCarlos.Coomulpinort.common.util.*"%>
 <%@ page import="java.util.*,java.io.*"  contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 

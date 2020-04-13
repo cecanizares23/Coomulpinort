@@ -1,12 +1,12 @@
 <%-- 
     Document   : registrar-usuarios
-    Created on : 27-sep-2018, 14:18:55
-    Author     : Ing. Carlos Cañizares
+    Created on : 13/04/2020, 05:37:45 PM
+    Author     : Ing. Carlos
 --%>
 
-<%@page import="co.IngCarlos.gastosQX.common.util.Formato"%>
-<%@page import="co.IngCarlos.gastosQX.common.util.Constantes"%>
-<%@page import="co.IngCarlos.gastosQX.mvc.dto.DatosUsuarioDTO"%>
+<%@page import="co.IngCarlos.Coomulpinort.common.util.Formato"%>
+<%@page import="co.IngCarlos.Coomulpinort.common.util.Constantes"%>
+<%@page import="co.IngCarlos.Coomulpinort.mvc.dto.DatosUsuarioDTO"%>
 <%@ page import="java.util.*,java.io.*"%>
 <%@page session='true'%>
 

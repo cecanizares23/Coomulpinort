@@ -1,10 +1,10 @@
 <%-- 
     Document   : index
-    Created on : 25/10/2017, 05:37:45 PM
-    Author     : carlos
+    Created on : 13/04/2020, 05:37:45 PM
+    Author     : Ing. Carlos
 --%>
 
-<%@page import="co.IngCarlos.gastosQX.mvc.dto.*"%>
+<%@page import="co.IngCarlos.Coomulpinort.mvc.dto.*"%>
 <%@ page import="java.util.*,java.io.*"%>
 <%@page session='true'%>
 
