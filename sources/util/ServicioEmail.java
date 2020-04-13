@@ -1,7 +1,12 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * ContextDataResourceNames.java
+ *
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
+ * All rights reserved
  */
+
 package util;
 import java.util.Properties;
 import javax.mail.Message;

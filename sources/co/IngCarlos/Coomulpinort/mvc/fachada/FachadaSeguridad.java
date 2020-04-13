@@ -1,16 +1,17 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.mvc.fachada;
 
-import co.IngCarlos.gastosQX.mvc.dto.DatosUsuarioDTO;
-import co.IngCarlos.gastosQX.mvc.mediador.MediadorSeguridad;
+package co.IngCarlos.Coomulpinort.mvc.fachada;
+
+import co.IngCarlos.Coomulpinort.mvc.dto.DatosUsuarioDTO;
+import co.IngCarlos.Coomulpinort.mvc.mediador.MediadorSeguridad;
 import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
 import org.directwebremoting.annotations.ScriptScope;

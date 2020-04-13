@@ -1,7 +1,7 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
+ * Proyecto: Coomulpinort Puntos
  * Cliente:  Coomulpinort
  * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved

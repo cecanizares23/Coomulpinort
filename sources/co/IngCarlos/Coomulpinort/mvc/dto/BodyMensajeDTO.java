@@ -1,13 +1,13 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.mvc.dto;
+package co.IngCarlos.Coomulpinort.mvc.dto;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;

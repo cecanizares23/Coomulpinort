@@ -1,16 +1,16 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.mvc.servlet;
+package co.IngCarlos.Coomulpinort.mvc.servlet;
 
-import co.IngCarlos.gastosQX.common.util.Generales;
-import co.IngCarlos.gastosQX.common.util.LoggerMessage;
+import co.IngCarlos.Coomulpinort.common.util.Generales;
+import co.IngCarlos.Coomulpinort.common.util.LoggerMessage;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;

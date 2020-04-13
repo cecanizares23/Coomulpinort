@@ -1,23 +1,23 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.mvc.mediador;
+package co.IngCarlos.Coomulpinort.mvc.mediador;
 
-import co.IngCarlos.gastosQX.common.connection.ContextDataResourceNames;
-import co.IngCarlos.gastosQX.mvc.dto.DatosUsuarioDTO;
-import co.IngCarlos.gastosQX.common.connection.DataBaseConnection;
-import co.IngCarlos.gastosQX.common.util.LoggerMessage;
-import co.IngCarlos.gastosQX.mvc.dao.DatosUsuarioDAO;
-import co.IngCarlos.gastosQX.mvc.dao.FuncionalidadDAO;
-import co.IngCarlos.gastosQX.mvc.dao.MenuDAO;
-import co.IngCarlos.gastosQX.mvc.dto.FuncionalidadDTO;
-import co.IngCarlos.gastosQX.mvc.dto.MenuDTO;
+import co.IngCarlos.Coomulpinort.common.connection.ContextDataResourceNames;
+import co.IngCarlos.Coomulpinort.mvc.dto.DatosUsuarioDTO;
+import co.IngCarlos.Coomulpinort.common.connection.DataBaseConnection;
+import co.IngCarlos.Coomulpinort.common.util.LoggerMessage;
+import co.IngCarlos.Coomulpinort.mvc.dao.DatosUsuarioDAO;
+import co.IngCarlos.Coomulpinort.mvc.dao.FuncionalidadDAO;
+import co.IngCarlos.Coomulpinort.mvc.dao.MenuDAO;
+import co.IngCarlos.Coomulpinort.mvc.dto.FuncionalidadDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.MenuDTO;
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -62,7 +62,7 @@ public class MediadorSeguridad {
         try {
             System.out.print("llega a mediador");
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             datosUsuario = new DatosUsuarioDAO().consultarDatosUsuarioLogueado(conexion, usuario);
             System.out.print("datos Usuario" + datosUsuario.toStringJson());
             ArrayList<MenuDTO> datosMenu = new MenuDAO().listarMenusPorUsuario(conexion, datosUsuario.getIdTipoUsuario());

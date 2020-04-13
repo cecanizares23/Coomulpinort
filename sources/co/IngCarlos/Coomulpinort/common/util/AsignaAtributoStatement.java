@@ -1,13 +1,13 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.common.util;
+package co.IngCarlos.Coomulpinort.common.util;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;

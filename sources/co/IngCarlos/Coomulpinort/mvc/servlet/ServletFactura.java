@@ -1,20 +1,20 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.mvc.servlet;
+package co.IngCarlos.Coomulpinort.mvc.servlet;
 
 import br.eti.mertz.wkhtmltopdf.wrapper.Pdf;
 import br.eti.mertz.wkhtmltopdf.wrapper.page.PageType;
 import br.eti.mertz.wkhtmltopdf.wrapper.params.Param;
-import co.IngCarlos.gastosQX.common.util.Constantes;
-import co.IngCarlos.gastosQX.common.util.Generales;
-import co.IngCarlos.gastosQX.common.util.LoggerMessage;
+import co.IngCarlos.Coomulpinort.common.util.Constantes;
+import co.IngCarlos.Coomulpinort.common.util.Generales;
+import co.IngCarlos.Coomulpinort.common.util.LoggerMessage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,46 +1,35 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
-package co.IngCarlos.gastosQX.mvc.mediador;
 
-import co.IngCarlos.gastosQX.common.connection.ContextDataResourceNames;
-import co.IngCarlos.gastosQX.common.connection.DataBaseConnection;
-import co.IngCarlos.gastosQX.common.util.Constantes;
-import co.IngCarlos.gastosQX.common.util.EnvioEmail;
-import co.IngCarlos.gastosQX.common.util.Formato;
-import co.IngCarlos.gastosQX.common.util.Generales;
-import co.IngCarlos.gastosQX.common.util.LoggerMessage;
-import co.IngCarlos.gastosQX.mvc.dao.ArticulosDAO;
-import co.IngCarlos.gastosQX.mvc.dao.DatosUsuarioDAO;
-import co.IngCarlos.gastosQX.mvc.dao.DetalleGastosDAO;
-import co.IngCarlos.gastosQX.mvc.dao.EspecialidadDAO;
-import co.IngCarlos.gastosQX.mvc.dao.GastosDAO;
-import co.IngCarlos.gastosQX.mvc.dao.MedicoDAO;
-import co.IngCarlos.gastosQX.mvc.dao.ProcedimientoDAO;
-import co.IngCarlos.gastosQX.mvc.dao.TipoDocumentoDAO;
-import co.IngCarlos.gastosQX.mvc.dao.TipoUsuarioDAO;
-import co.IngCarlos.gastosQX.mvc.dao.UsuarioDAO;
-import co.IngCarlos.gastosQX.mvc.dao.UsuarioSeguridadDAO;
-import co.IngCarlos.gastosQX.mvc.dto.ArticulosDTO;
-import co.IngCarlos.gastosQX.mvc.dto.BodyMensajeDTO;
-import co.IngCarlos.gastosQX.mvc.dto.DatosUsuarioDTO;
-import co.IngCarlos.gastosQX.mvc.dto.DetalleGastosDTO;
-import co.IngCarlos.gastosQX.mvc.dto.EspecialidadDTO;
-import co.IngCarlos.gastosQX.mvc.dto.GastosDTO;
-import co.IngCarlos.gastosQX.mvc.dto.MedicoDTO;
-import co.IngCarlos.gastosQX.mvc.dto.ProcedimientoDTO;
-import co.IngCarlos.gastosQX.mvc.dto.RegistroDTO;
-import co.IngCarlos.gastosQX.mvc.dto.RespuestaDTO;
-import co.IngCarlos.gastosQX.mvc.dto.TipoDocumentoDTO;
-import co.IngCarlos.gastosQX.mvc.dto.TipoUsuarioDTO;
-import co.IngCarlos.gastosQX.mvc.dto.UsuarioDTO;
-import co.IngCarlos.gastosQX.mvc.dto.UsuarioSeguridadDTO;
-import co.IngCarlos.gastosQX.responsemensaje.dto.ResponseMensajeDTO;
+package co.IngCarlos.Coomulpinort.mvc.mediador;
+
+import co.IngCarlos.Coomulpinort.common.connection.ContextDataResourceNames;
+import co.IngCarlos.Coomulpinort.common.connection.DataBaseConnection;
+import co.IngCarlos.Coomulpinort.common.util.Constantes;
+import co.IngCarlos.Coomulpinort.common.util.EnvioEmail;
+import co.IngCarlos.Coomulpinort.common.util.Formato;
+import co.IngCarlos.Coomulpinort.common.util.Generales;
+import co.IngCarlos.Coomulpinort.common.util.LoggerMessage;
+import co.IngCarlos.Coomulpinort.mvc.dao.DatosUsuarioDAO;
+import co.IngCarlos.Coomulpinort.mvc.dao.TipoDocumentoDAO;
+import co.IngCarlos.Coomulpinort.mvc.dao.TipoUsuarioDAO;
+import co.IngCarlos.Coomulpinort.mvc.dao.UsuarioDAO;
+import co.IngCarlos.Coomulpinort.mvc.dao.UsuarioSeguridadDAO;
+import co.IngCarlos.Coomulpinort.mvc.dto.BodyMensajeDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.DatosUsuarioDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.RegistroDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.RespuestaDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.TipoDocumentoDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.TipoUsuarioDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.UsuarioDTO;
+import co.IngCarlos.Coomulpinort.mvc.dto.UsuarioSeguridadDTO;
+import co.IngCarlos.Coomulpinort.responsemensaje.dto.ResponseMensajeDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.crypto.provider.ARCFOURCipher;
 import java.io.BufferedReader;
@@ -121,7 +110,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             registroExitoso = new RegistroDTO();
             String fecha = Formato.formatoFecha(datosUsuario1.getFechaNacimiento());
@@ -198,7 +187,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
 
             validarUsuario = new UsuarioSeguridadDAO().validarUsuarioSeguridad(conexion, datosUsuario);
@@ -234,7 +223,7 @@ public class MediadorAppGastos {
         ArrayList<UsuarioDTO> listado = null;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             listado = new UsuarioDAO().listarUsuarioSeguridad(conexion);
             conexion.close();
             conexion = null;
@@ -266,7 +255,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
 
             datos = new UsuarioDAO().consultarUsuario(conexion, idUsuario);
             //String fecha = Formato.formatoFechaMostrar(datos.getFechaNacimiento());            
@@ -301,7 +290,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             listado = new UsuarioDAO().listarUsuarios(conexion);
 
             conexion.close();
@@ -335,7 +324,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             deleteExitoso = new UsuarioDAO().eliminarUsuario(conexion, id);
 
             conexion.close();
@@ -370,7 +359,7 @@ public class MediadorAppGastos {
         DatosUsuarioDTO datos = new DatosUsuarioDTO();
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             datos = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
             datos.setImagenPerfil((String) session.getAttribute("img"));
@@ -415,7 +404,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             registroExitoso = new RegistroDTO();
             String fecha = Formato.formatoFecha(datosUsuario1.getFechaNacimiento());
@@ -463,7 +452,7 @@ public class MediadorAppGastos {
         boolean registroExitoso = false;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             registroExitoso = new UsuarioDAO().activarEstadoUsuario(conexion, idUsuario, Constantes.ESTADO_ACTIVO);
         } catch (Exception e) {
             LoggerMessage.getInstancia().loggerMessageException(e);
@@ -490,7 +479,7 @@ public class MediadorAppGastos {
         boolean registroExitoso = false;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             registroExitoso = new UsuarioDAO().inactivarEstadoUsuario(conexion, idUsuario, Constantes.ESTADO_INACTIVO);
         } catch (Exception e) {
             LoggerMessage.getInstancia().loggerMessageException(e);
@@ -517,7 +506,7 @@ public class MediadorAppGastos {
         ArrayList<TipoDocumentoDTO> listado = null;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             listado = new TipoDocumentoDAO().listarTipoDocumento(conexion, Constantes.ESTADO_ACTIVO);
             conexion.close();
             conexion = null;
@@ -554,7 +543,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             registroExitoso = new TipoDocumentoDAO().registrarTipoDocumento(conexion, datosTipoDocumento, datosUsuario.getUsuario());
         } catch (Exception e) {
@@ -587,7 +576,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             registroExitoso = new TipoDocumentoDAO().actualizarTipoDocumento(conexion, datosTipoDocumento, datosUsuario.getUsuario());
 
@@ -620,7 +609,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             deleteExitoso = new TipoDocumentoDAO().eliminarTipoDocumento(conexion, id, Constantes.ESTADO_ACTIVO);
 
             conexion.close();
@@ -653,7 +642,7 @@ public class MediadorAppGastos {
         ArrayList<TipoDocumentoDTO> listado = null;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             listado = new TipoDocumentoDAO().listarTodosLosTipoDocumento(conexion);
             conexion.close();
             conexion = null;
@@ -685,7 +674,7 @@ public class MediadorAppGastos {
         ArrayList<TipoUsuarioDTO> listado = null;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             listado = new TipoUsuarioDAO().listarCargos(conexion, Constantes.ESTADO_ACTIVO);
             conexion.close();
             conexion = null;
@@ -722,7 +711,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             registroExitoso = new TipoUsuarioDAO().registrarCargo(conexion, datosCargo, datosUsuario.getUsuario());
 
@@ -755,7 +744,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
             registroExitoso = new TipoUsuarioDAO().actualizarCargo(conexion, datosCargo, datosUsuario.getUsuario());
 
@@ -788,7 +777,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             deleteExitoso = new TipoUsuarioDAO().eliminarCargo(conexion, id, Constantes.ESTADO_INACTIVO);
 
             conexion.close();
@@ -821,7 +810,7 @@ public class MediadorAppGastos {
         ArrayList<TipoUsuarioDTO> listado = null;
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             listado = new TipoUsuarioDAO().listarTodosLosCargos(conexion);
             conexion.close();
             conexion = null;
@@ -858,7 +847,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
 
             datosUsuario = new DatosUsuarioDAO().recuperarContrasenia(conexion, documento);
 
@@ -908,7 +897,7 @@ public class MediadorAppGastos {
             DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
 
             datos = new UsuarioDAO().consultarUsuarioPorId(conexion, id);
             String fecha = Formato.formatoFechaMostrar(datos.getFechaNacimiento());
@@ -945,7 +934,7 @@ public class MediadorAppGastos {
 
         try {
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
 
             HttpSession session = WebContextFactory.get().getSession();
             DatosUsuarioDTO datosUsuarioLogueado = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
@@ -988,7 +977,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
 
             HttpSession session = WebContextFactory.get().getSession();
             DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
@@ -1032,7 +1021,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             conexion.setAutoCommit(false);
 
             validarUsuario = new UsuarioDAO().validarDocumento(conexion, datosUsuario);
@@ -1076,7 +1065,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
             urlRequest = "https://api.infobip.com/sms/1/text/single";
             URL url = new URL(urlRequest);
 
@@ -1149,7 +1138,7 @@ public class MediadorAppGastos {
         try {
 
             dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
+            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_COOMULPINORT_JDBC);
 
             if (true) {
                 mensaje.setFrom("InfoSMS");
@@ -1189,1635 +1178,5 @@ public class MediadorAppGastos {
         }
         return respuesta;
     }
-
-    /**
-     *
-     * @param datosMedico
-     * @return
-     */
-    public boolean registrarMedico(MedicoDTO datosMedico) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            registroExitoso = new MedicoDAO().registrarMedico(conexion, datosMedico, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param datosMedico
-     * @return
-     */
-    public boolean actualizarMedico(MedicoDTO datosMedico) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            registroExitoso = new MedicoDAO().actualizarMedico(conexion, datosMedico, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean eliminarMedico(String id) {
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean deleteExitoso = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            deleteExitoso = new MedicoDAO().eliminarMedico(conexion, id, Constantes.ESTADO_INACTIVO);
-
-            conexion.close();
-            conexion = null;
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-            deleteExitoso = false;
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-                deleteExitoso = false;
-            }
-        }
-        return deleteExitoso;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public ArrayList<MedicoDTO> listarMedicos() {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<MedicoDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new MedicoDAO().listarMedicos(conexion);
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @return @param id
-     */
-    public MedicoDTO ConsultarMedicoXId(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        MedicoDTO datos = null;
-
-        try {
-            HttpSession session = WebContextFactory.get().getSession();
-            DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            datos = new MedicoDAO().ConsultarMedicoXId(conexion, id);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-
-        return datos;
-    }
-
-    /**
-     *
-     * @param datosEspecialidad
-     * @return
-     */
-    public boolean registrarEspecialidad(EspecialidadDTO datosEspecialidad) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            registroExitoso = new EspecialidadDAO().registrarEspecialidad(conexion, datosEspecialidad, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param datosEspecialidad
-     * @return
-     */
-    public boolean actualizarEspecialidad(EspecialidadDTO datosEspecialidad) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            registroExitoso = new EspecialidadDAO().actualizarEspecialidad(conexion, datosEspecialidad, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public ArrayList<EspecialidadDTO> listarTodasEspecialidades() {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<EspecialidadDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new EspecialidadDAO().listarTodasEspecialidades(conexion, Constantes.ESTADO_ACTIVO);
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean eliminarEspecialidad(String id) {
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean deleteExitoso = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            deleteExitoso = new EspecialidadDAO().eliminarEspecialidad(conexion, id);
-
-            conexion.close();
-            conexion = null;
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-            deleteExitoso = false;
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-                deleteExitoso = false;
-            }
-        }
-        return deleteExitoso;
-    }
-
-    /**
-     *
-     * @param datosMedico
-     * @return
-     */
-    public boolean validarDocumentoMedico(MedicoDTO datosMedico) {
-
-        HttpSession session = WebContextFactory.get().getSession();
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-
-        boolean validarUsuario = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-
-            validarUsuario = new MedicoDAO().validarDocumentoMedico(conexion, datosMedico);
-
-            if (validarUsuario) {
-                conexion.commit();
-
-            } else {
-                conexion.rollback();
-            }
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return validarUsuario;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean activarEstadoMedico(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new MedicoDAO().activarEstadoMedico(conexion, id, Constantes.ESTADO_ACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean inactivarEstadoMedico(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new MedicoDAO().inactivarEstadoMedico(conexion, id, Constantes.ESTADO_INACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param datosProcedimiento
-     * @return
-     */
-    public boolean registrarProcedimiento(ProcedimientoDTO datosProcedimiento) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            registroExitoso = new ProcedimientoDAO().registrarProcedimiento(conexion, datosProcedimiento, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param datosProcedimiento
-     * @return
-     */
-    public boolean actualizarProcedimiento(ProcedimientoDTO datosProcedimiento) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            registroExitoso = new ProcedimientoDAO().actualizarProcedimiento(conexion, datosProcedimiento, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean eliminarProcedimiento(String id) {
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean deleteExitoso = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            deleteExitoso = new ProcedimientoDAO().eliminarProcedimiento(conexion, id);
-
-            conexion.close();
-            conexion = null;
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-            deleteExitoso = false;
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-                deleteExitoso = false;
-            }
-        }
-        return deleteExitoso;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public ArrayList<ProcedimientoDTO> listarProcedimiento() {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<ProcedimientoDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new ProcedimientoDAO().listarProcedimiento(conexion, Constantes.ESTADO_ACTIVO);
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean activarEstadoProcedimiento(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new ProcedimientoDAO().activarEstadoProcedimiento(conexion, id, Constantes.ESTADO_ACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean inactivarEstadoProcedimiento(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new ProcedimientoDAO().inactivarEstadoProcedimiento(conexion, id, Constantes.ESTADO_INACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public ProcedimientoDTO ConsultarProcedimientoXId(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ProcedimientoDTO datos = null;
-
-        try {
-            HttpSession session = WebContextFactory.get().getSession();
-            DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            datos = new ProcedimientoDAO().ConsultarProcedimientoXId(conexion, id);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-
-        return datos;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean activarEstadoEspecialidad(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new EspecialidadDAO().activarEstadoEspecialidad(conexion, id, Constantes.ESTADO_ACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean inactivarEstadoEspecialidad(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new EspecialidadDAO().inactivarEstadoEspecialidad(conexion, id, Constantes.ESTADO_INACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public EspecialidadDTO ConsultarEspecialidadXId(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        EspecialidadDTO datos = null;
-
-        try {
-            HttpSession session = WebContextFactory.get().getSession();
-            DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            datos = new EspecialidadDAO().ConsultarEspecialidadXId(conexion, id);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-
-        return datos;
-    }
-
-    /**
-     *
-     * @param datosGastos
-     * @return
-     */
-    public String registrarGastos(GastosDTO datosGastos) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            datosGastos.setFecha(Formato.formatoFecha(datosGastos.getFecha()));
-            datosGastos.setEstado(Constantes.NO_CONFIRMADO);
-            registroExitoso = new GastosDAO().registrarGastos(conexion, datosGastos, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return datosGastos.getId();
-    }
-
-    /**
-     *
-     * @param datosGastos
-     * @return
-     */
-    public boolean actualizarGastos(GastosDTO datosGastos) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            datosGastos.setFecha(Formato.formatoFecha(datosGastos.getFecha()));
-            System.out.println("fecha " + datosGastos.getFecha());
-            registroExitoso = new GastosDAO().actualizarGastos(conexion, datosGastos, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean eliminarGastos(String id) {
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean deleteExitoso = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            deleteExitoso = new GastosDAO().eliminarGastos(conexion, id);
-
-            conexion.close();
-            conexion = null;
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-            deleteExitoso = false;
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-                deleteExitoso = false;
-            }
-        }
-        return deleteExitoso;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public ArrayList<GastosDTO> listarGastos() {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<GastosDTO> listado = null;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new GastosDAO().listarGastos(conexion);
-
-            for (int i = 0; i < listado.size(); i++) {
-                listado.get(i).setFecha(Formato.formatoFechaMostrar(listado.get(i).getFecha()));
-            }
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean activarEstadoGastos(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new GastosDAO().activarEstadoGastos(conexion, id, Constantes.CONFIRMADO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean inactivarEstadoGastos(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new GastosDAO().inactivarEstadoGastos(conexion, id, Constantes.ESTADO_INACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public GastosDTO ConsultarGastosXId(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        GastosDTO datos = null;
-
-        try {
-            HttpSession session = WebContextFactory.get().getSession();
-            DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            datos = new GastosDAO().ConsultarGastosXId(conexion, id);
-            datos.setFecha(Formato.formatoFechaMostrar(datos.getFecha()));
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-
-        return datos;
-    }
-
-    /**
-     *
-     * @param datosArticulos
-     * @return
-     */
-    public String registrarArticulo(ArticulosDTO datosArticulos) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            //datosArticulos.setFecha(Formato.formatoFecha(datosGastos.getFecha()));
-            //datosArticulos.setEstado(Constantes.ESTADO_ACTIVO);
-            datosArticulos.setCantidad(Constantes.ZERO);
-            datosArticulos.setEstado(Constantes.ESTADO_ACTIVO);
-            registroExitoso = new ArticulosDAO().registrarArticulo(conexion, datosArticulos, datosUsuario.getUsuario());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return datosArticulos.getId();
-    }
-
-    /**
-     *
-     * @param datosArticulo
-     * @return
-     */
-    public boolean actualizarArticulo(ArticulosDTO datosArticulo) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-            //datosArticulo.setFecha(Formato.formatoFecha(datosGastos.getFecha()));   
-            //System.out.println("fecha " + datosArticulo.getFecha());
-            registroExitoso = new ArticulosDAO().actualizarArticulo(conexion, datosArticulo, datosUsuario.getUsuario());
-            System.out.println("datos " + datosArticulo.toStringJson());
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean eliminarArticulo(String id) {
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean deleteExitoso = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            deleteExitoso = new ArticulosDAO().eliminarArticulo(conexion, id);
-
-            conexion.close();
-            conexion = null;
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-            deleteExitoso = false;
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-                deleteExitoso = false;
-            }
-        }
-        return deleteExitoso;
-    }
-
-    /**
-     *
-     * @param datosArticulo
-     * @return
-     */
-    public boolean validarReferencia(ArticulosDTO datosArticulo) {
-
-        HttpSession session = WebContextFactory.get().getSession();
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-
-        boolean validarUsuario = false;
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-
-            validarUsuario = new ArticulosDAO().validarReferencia(conexion, datosArticulo);
-
-            if (validarUsuario) {
-                conexion.commit();
-
-            } else {
-                conexion.rollback();
-            }
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return validarUsuario;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public ArrayList<ArticulosDTO> listarTodosLosArticulos() {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<ArticulosDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new ArticulosDAO().listarTodosLosArticulos(conexion);
-            for (int i = 0; i < listado.size(); i++) {
-                if ("1".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Unidad");
-                }
-                if ("2".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Kit");
-                }
-                if ("3".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Combo");
-                }
-            }
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean activarEstadoArticulo(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new ArticulosDAO().activarEstadoArticulo(conexion, id, Constantes.ESTADO_ACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public boolean inactivarEstadoArticulo(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            registroExitoso = new ArticulosDAO().inactivarEstadoArticulo(conexion, id, Constantes.ESTADO_INACTIVO);
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return registroExitoso;
-    }
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public ArticulosDTO ConsultarArticulosXId(String id) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArticulosDTO datos = null;
-
-        try {
-            HttpSession session = WebContextFactory.get().getSession();
-            DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            datos = new ArticulosDAO().ConsultarArticulosXId(conexion, id);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-
-        return datos;
-    }
-
-    /**
-     *
-     * @param condicion
-     * @return
-     */
-    public ArrayList<ArticulosDTO> buscarPorReferencia(String condicion) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<ArticulosDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new ArticulosDAO().buscarPorReferencia(conexion, condicion);
-            for (int i = 0; i < listado.size(); i++) {
-                if ("1".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Unidad");
-                }
-                if ("2".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Kit");
-                }
-                if ("3".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Combo");
-                }
-            }
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param condicion
-     * @return
-     */
-    public ArrayList<ArticulosDTO> buscarPorDescripcion(String condicion) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<ArticulosDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new ArticulosDAO().buscarPorDescripcion(conexion, condicion);
-
-            for (int i = 0; i < listado.size(); i++) {
-                if ("1".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Unidad");
-                }
-                if ("2".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Kit");
-                }
-                if ("3".equals(listado.get(i).getUnidadMedidad())) {
-                    listado.get(i).setUnidadMedidad("Combo");
-                }
-            }
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param datosGastoDetalle
-     * @return
-     */
-    public String registrarDetalleGasto(DetalleGastosDTO datosGastoDetalle) {
-        HttpSession session = WebContextFactory.get().getSession();
-        DatosUsuarioDTO datosUsuario = (DatosUsuarioDTO) session.getAttribute("datosUsuario");
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean registroExitoso = false;
-        boolean actualizarCantidad = false;
-        ArticulosDTO datosArticulo = null;
-        int cantidadArticulo = 0;
-        int resta = 0;
-        int cantidadDescontar = 0;
-        String operacion = "";
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            conexion.setAutoCommit(false);
-
-            datosArticulo = new ArticulosDAO().ConsultarArticulosXId(conexion, datosGastoDetalle.getIdArticulos());
-
-            if ("0".equals(datosArticulo.getCantidad())) {
-                registroExitoso = false;
-                operacion = "0";
-                System.out.println("la cantidad del articulo seleccionado es 0 no hay existencias en el inventario");
-            } else {
-                cantidadArticulo = Integer.parseInt(datosArticulo.getCantidad());
-                cantidadDescontar = Integer.parseInt(datosGastoDetalle.getCantidad());
-                resta = cantidadArticulo - cantidadDescontar;
-                System.out.println("el resultado de Resta es ::::: " + resta);
-                if (resta < 0) {
-                    operacion = "1";
-                    System.out.println("Resta es negativo por lo cual la operacion no puede ejecutarse");
-                } else {
-                    System.out.println("valores a actualizar cantidad y idArticulo  ::::: " + String.valueOf(resta) + " ::: " + datosGastoDetalle.getIdArticulos());
-                    actualizarCantidad = new ArticulosDAO().actualizarCantidad(conexion, String.valueOf(resta), datosGastoDetalle.getIdArticulos());
-                    System.out.println("se actualizo cantidad con exito ? :::::: " + actualizarCantidad);
-                    if (actualizarCantidad == true) {
-                        registroExitoso = new DetalleGastosDAO().registrarDetalleGasto(conexion, datosGastoDetalle, datosUsuario.getUsuario());
-                        System.out.println("el registro del detalle a sido :::::: " + registroExitoso);
-                        if (registroExitoso == true) {
-                            operacion = "2";
-                        }
-
-                    }
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (Exception e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return operacion;
-    }
-
-    /**
-     *
-     * @param idGasto
-     * @return
-     */
-    public ArrayList<DetalleGastosDTO> listarDetalleGastoXIdGasto(String idGasto) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<DetalleGastosDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            listado = new DetalleGastosDAO().listarDetalleGastoXIdGasto(conexion, idGasto);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param id
-     * @param cantidad
-     * @param idArticulo
-     * @return
-     */
-    public String eliminarDetalleGasto(String id, String cantidad, String idArticulo) {
-
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        boolean deleteExitoso = false;
-        boolean actualizarCantidad = false;
-        ArticulosDTO datosArticulos = null;
-
-        int actual = 0;
-        int suma = 0;
-        int valor = 0;
-
-        String eliminado = "";
-
-        try {
-
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-            //deleteExitoso = new DetalleGastosDAO().eliminarDetalleGasto(conexion, id);
-
-            datosArticulos = new ArticulosDAO().ConsultarArticulosXId(conexion, idArticulo);
-            System.out.println("datos articulo en mediador ::: " + datosArticulos.toStringJson());
-            actual = Integer.valueOf(datosArticulos.getCantidad());
-            System.out.println("actual ::: " + actual);
-            valor = Integer.valueOf(cantidad);
-            System.out.println("valor ::: " + valor);
-            suma = actual + valor;
-
-            deleteExitoso = new DetalleGastosDAO().eliminarDetalleGasto(conexion, id);
-
-            if (deleteExitoso == true) {
-                actualizarCantidad = new ArticulosDAO().actualizarCantidad(conexion, Integer.toString(suma), idArticulo);
-                if (actualizarCantidad == true) {
-                    eliminado = "1";
-                }
-            } else {
-                eliminado = "0";
-            }
-
-            conexion.close();
-            conexion = null;
-
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-            deleteExitoso = false;
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-                deleteExitoso = false;
-            }
-        }
-        return eliminado;
-    }
-
-    /**
-     *
-     * @param condicion
-     * @return
-     */
-    public ArrayList<GastosDTO> buscarGastoFecha(String condicion) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<GastosDTO> listado = null;
-
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            condicion = Formato.formatoFecha(condicion);
-            System.out.println("condicion :::::::: " + condicion);
-
-            listado = new GastosDAO().buscarGastoFecha(conexion, condicion);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param condicion
-     * @return
-     */
-    public ArrayList<GastosDTO> buscarGastoCedulaPaciente(String condicion) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<GastosDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            listado = new GastosDAO().buscarGastoCedulaPaciente(conexion, condicion);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
-    /**
-     *
-     * @param condicion
-     * @return
-     */
-    public ArrayList<GastosDTO> ConsultarGastosXId1(String condicion) {
-        DataBaseConnection dbcon = null;
-        Connection conexion = null;
-        ArrayList<GastosDTO> listado = null;
-        try {
-            dbcon = DataBaseConnection.getInstance();
-            conexion = dbcon.getConnection(ContextDataResourceNames.MYSQL_GASTOS_JDBC);
-
-            listado = new GastosDAO().ConsultarGastosXId1(conexion, condicion);
-
-            conexion.close();
-            conexion = null;
-        } catch (Exception e) {
-            LoggerMessage.getInstancia().loggerMessageException(e);
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    conexion = null;
-                }
-                if (listado != null && listado.isEmpty()) {
-                    listado = null;
-                }
-            } catch (SQLException e) {
-                LoggerMessage.getInstancia().loggerMessageException(e);
-            }
-        }
-        return listado;
-    }
-
+                    
 }

@@ -1,15 +1,15 @@
 /*
  * ContextDataResourceNames.java
  *
- * Proyecto: gastosQX
- * Cliente: CSJ
- * Copyright 2018 by Ing. Carlos Cañizares
+ * Proyecto: Coomulpinort Puntos
+ * Cliente:  Coomulpinort
+ * Copyright 2020 by Ing. Carlos Cañizares
  * All rights reserved
  */
 
-package co.IngCarlos.gastosQX.mvc.servlet;
+package co.IngCarlos.Coomulpinort.mvc.servlet;
 
-import co.IngCarlos.gastosQX.common.util.Constantes;
+import co.IngCarlos.Coomulpinort.common.util.Constantes;
 import java.io.IOException;
 import java.util.Properties;
 import javax.ejb.Lock;
