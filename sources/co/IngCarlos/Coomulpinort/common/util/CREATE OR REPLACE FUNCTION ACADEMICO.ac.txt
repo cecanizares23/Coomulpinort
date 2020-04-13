@@ -1,0 +1,172 @@
+CREATE OR REPLACE FUNCTION ACADEMICO.ac_fcn_obt_codigo_estudiante (
+    pvc2_codigo_programa   IN   VARCHAR2,
+    pvc2_semestre          IN   VARCHAR2,
+    pnum_estudiante_id     IN   NUMBER,
+    pvc2_tipo_admision     IN   VARCHAR2
+) RETURN VARCHAR2 IS
+
+    typ_return               VARCHAR2(12);
+    lvc2_codigo_estudiante   academico.act_codigos.codigo%TYPE;
+    lvc2_consecutivo         academico.act_secuencia_cod_estudiante.consecutivo%TYPE;
+    lnum_id_secuencia        academico.act_secuencia_cod_estudiante.id%TYPE;
+    lvc2_error               VARCHAR2(1) := 'E';
+    lvc2_existe              VARCHAR2(1) := 'T';
+    lvc2_no_existe           VARCHAR2(1) := 'F';
+    lvc_returning            VARCHAR2(20);
+BEGIN
+    lvc2_codigo_estudiante := '';
+    lvc2_consecutivo := '';
+
+--  Buscar si el codigo del estudiante ya existe
+    BEGIN
+        SELECT
+            co.codigo
+        INTO lvc2_codigo_estudiante
+        FROM
+            academico.act_codigos co
+        WHERE
+            co.semestre = pvc2_semestre
+            AND co.estudiante_id = pnum_estudiante_id
+            AND co.tipo_admision_id = pvc2_tipo_admision;
+           
+-- Si el codigo no existe debemos obtener el ultimo codigo generado para el programa y el semestre.
+
+    EXCEPTION
+        WHEN no_data_found THEN
+            BEGIN
+                --SELECT MAX (se.consecutivo)
+                  --INTO lvc2_consecutivo, lnum_id_secuencia
+                  --FROM academico.act_secuencia_cod_estudiante se
+                 --WHERE se.programa = pvc2_codigo_programa
+                   --AND se.semestre = pvc2_semestre;
+                SELECT
+                    id,
+                    consecutivo
+                INTO
+                    lnum_id_secuencia,
+                    lvc2_consecutivo
+                FROM
+                    academico.act_secuencia_cod_estudiante
+                WHERE
+                    programa = pvc2_codigo_programa
+                    AND semestre = pvc2_semestre
+                    AND consecutivo = (
+                        SELECT
+                            MAX(to_number(consecutivo))
+                        FROM
+                            academico.act_secuencia_cod_estudiante
+                        WHERE
+                            programa = pvc2_codigo_programa
+                            AND semestre = pvc2_semestre
+                    );
+
+            EXCEPTION
+                WHEN no_data_found THEN
+                    lvc2_consecutivo := to_char(1);
+                    BEGIN
+                        INSERT INTO academico.act_secuencia_cod_estudiante (
+                            id,
+                            semestre,
+                            consecutivo,
+                            programa
+                        ) VALUES (
+                            arsq_act_situaciones_academica.NEXTVAL,
+                            pvc2_semestre,
+                            lvc2_consecutivo,
+                            pvc2_codigo_programa
+                        );
+
+                    EXCEPTION
+                        WHEN dup_val_on_index THEN
+                            IF ( lvc2_error IS NULL ) THEN
+                                typ_return := lvc2_error;
+                            ELSE
+                                typ_return := sqlcode;
+                            END IF;
+
+                            RETURN typ_return;
+                        WHEN OTHERS THEN
+                            IF ( lvc2_error IS NULL ) THEN
+                                typ_return := lvc2_error;
+                            ELSE
+                                typ_return := sqlcode;
+                            END IF;
+
+                            RETURN typ_return;
+                    END;
+
+                    IF ( lvc2_no_existe IS NULL ) THEN
+                        typ_return := lvc2_no_existe;
+                    ELSE
+                        typ_return := pvc2_semestre
+                                      || lpad(lvc2_consecutivo, 4, '0')
+                                      || pvc2_codigo_programa;
+                    END IF;
+
+                    RETURN typ_return;
+                WHEN OTHERS THEN
+                    IF ( lvc2_error IS NULL ) THEN
+                        typ_return := lvc2_error;
+                    ELSE
+                        typ_return := sqlcode;
+                    END IF;
+
+                    RETURN typ_return;
+            END;
+
+            lvc2_consecutivo := to_char(to_number(lvc2_consecutivo) + 1);
+            BEGIN
+                UPDATE academico.act_secuencia_cod_estudiante
+                SET
+                    consecutivo = lvc2_consecutivo
+                WHERE
+                    id = lnum_id_secuencia;
+
+            EXCEPTION
+                WHEN dup_val_on_index THEN
+                    IF ( lvc2_error IS NULL ) THEN
+                        typ_return := lvc2_error;
+                    ELSE
+                        typ_return := sqlcode;
+                    END IF;
+
+                    RETURN typ_return;
+                WHEN OTHERS THEN
+                    IF ( lvc2_error IS NULL ) THEN
+                        typ_return := lvc2_error;
+                    ELSE
+                        typ_return := sqlcode;
+                    END IF;
+
+                    RETURN typ_return;
+            END;
+
+            IF ( lvc2_no_existe IS NULL ) THEN
+                typ_return := lvc2_no_existe;
+            ELSE
+                typ_return := pvc2_semestre
+                              || lpad(lvc2_consecutivo, 4, '0')
+                              || pvc2_codigo_programa;
+            END IF;
+
+            RETURN typ_return;
+        WHEN OTHERS THEN
+            IF ( lvc2_error IS NULL ) THEN
+                typ_return := lvc2_error;
+            ELSE
+                typ_return := sqlcode;
+            END IF;
+
+            RETURN typ_return;
+    END;
+
+    IF lvc2_codigo_estudiante IS NOT NULL THEN
+        IF ( lvc2_existe IS NULL ) THEN
+            typ_return := lvc2_existe;
+        ELSE
+            typ_return := lvc2_codigo_estudiante;
+        END IF;
+    END IF;
+
+    RETURN typ_return;
+END;
