@@ -50,7 +50,7 @@
     <body class="login_page">
 
         <div class="login_header">
-            <img src="assets/img/logo.png" alt="site_logo">
+            <img src="assets/img/LOGO-COOMULPINORT.png" alt="site_logo">
         </div>
         <div class="login_register_form">
             <div class="form_wrapper animated-short" id="login_form">
